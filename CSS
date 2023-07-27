@@ -1,0 +1,92 @@
+<td style="width: 91.015625px;">&nbsp;Fixture&nbsp;</td>
+<td style="width: 81.71875px;">
+<p>Light 1<br></p>
+</td>
+<td style="width: 62.296875px;">
+<p>Light 2®<br></p>
+</td>
+<td style="width: 72.015625px;">Light 3</td>
+<td style="width: 72.015625px;">Light 4<br>spec</td>
+<td style="width: 72.015625px;">Light 5</td>
+</tr>
+<tr>
+<td style="width: 91.015625px;">Watts*</td>
+<td style="width: 81.71875px;">655</td>
+<td style="width: 62.296875px;">620</td>
+<td style="width: 72.015625px;">630</td>
+<td style="width: 72.015625px;">620</td>
+<td style="width: 72.015625px;">332</td>
+</tr>
+<tr>
+<td style="width: 91.015625px;">PPF*</td>
+<td style="width: 81.71875px;">1920</td>
+<td style="width: 62.296875px;">1625</td>
+<td style="width: 72.015625px;">1770</td>
+<td style="width: 72.015625px;">1580</td>
+<td style="width: 72.015625px;">911</td>
+</tr>
+</tbody>
+</table></div>
+<p>* Estimated. Actual numbers within 5%</p>
+<p>&nbsp;</p>
+<script type="text/javascript">// <![CDATA[
+function Calculate()
+{
+        num1 = document.getElementById("WattsPerLamp").value;
+        num2 = document.getElementById("PpfPerLamp").value;
+        num3 = document.getElementById("NumberOfLamps").value;
+        num4 = document.getElementById("CostPerLamp").value;
+        num5 = document.getElementById("EnergyRate").value;
+        num6 = document.getElementById("LightsOnHrs").value;
+        num7 = document.getElementById("CycleDays").value;
+
+var CalcualtedEfficiency= (num2 / num1 );
+document.getElementById("CalcualtedEfficiency").innerHTML = CalcualtedEfficiency.toFixed(2);
+
+var TotalPPF= (num2 * num3);
+document.getElementById("TotalPPF").innerHTML = TotalPPF.toFixed(2);
+
+var TotalFixtureCost= (num3 * num4);
+document.getElementById("TotalFixtureCost").innerHTML = TotalFixtureCost.toFixed(2);
+
+var TotalPowerConsum= (num3 * num1 );
+document.getElementById("TotalPowerConsum").innerHTML = TotalPowerConsum.toFixed(2);
+
+var TotalPowerConsumKW= (num3 * num1 /1000 );
+document.getElementById("TotalPowerConsumKW").innerHTML = TotalPowerConsumKW.toFixed(2);
+
+var TotalBTU= (num3 * num1 * 3.412141633 );
+document.getElementById("TotalBTU").innerHTML = TotalBTU.toFixed(2);
+
+var TotalEnergyperday= ( num6 * num5 * num3 * num1 /1000 );
+document.getElementById("TotalEnergyperday").innerHTML = TotalEnergyperday.toFixed(2);
+
+var TotalEnergypercycle= ( num7 * num6 * num5 * num3 * num1 /1000 );
+document.getElementById("TotalEnergypercycle").innerHTML = TotalEnergypercycle.toFixed(2);
+
+}
+// ]]></script>
+<meta charset="utf-8">
+<style type="text/css"><!--
+body {margin: 30px;}
+--></style>
+<form>
+<p>Watts per Fixture: <input id="WattsPerLamp" type="text" maxlength="4" size="5" value="0"></p>
+<p>PPF Output per Fixture (μmol or PPF): <input id="PpfPerLamp" type="text" maxlength="4" size="5" value="0"></p>
+<p>Number of Fixtures: <input id="NumberOfLamps" type="text" maxlength="4" size="5" value="0"></p>
+<p>Cost per Lamp: $ <input id="CostPerLamp" type="text" maxlength="4" size="5" value="0"></p>
+<p>Utility Energy rate (kwhr): $ <input id="EnergyRate" type="text" maxlength="6" size="6" value="0.0720"></p>
+<p>Lights on # of hrs a day (hrs): <input id="LightsOnHrs" type="text" maxlength="2" size="4" value="12"></p>
+<p># of days per cycle: <input id="CycleDays" type="text" maxlength="2" size="2" value="60"></p>
+<p>&nbsp;<br> <input value="Calculate" type="button" onclick="Calculate()"></p>
+<p>&nbsp;</p>
+<p>Efficiency μmol/joule or PPF/W : <span id="CalcualtedEfficiency"></span></p>
+<p>Total μmol or PPF : <span id="TotalPPF"></span></p>
+<p>Total cost of Fixtures : $ <span id="TotalFixtureCost"></span></p>
+<p>Total Power Consumption Watts : <span id="TotalPowerConsum"></span></p>
+<p>Total Power Consumption KW : <span id="TotalPowerConsumKW"></span></p>
+<p>Total BTU : <span id="TotalBTU"></span></p>
+<p>Total energy bill per day : $ <span id="TotalEnergyperday"></span></p>
+<p>Total energy bill per cycle: $ <span id="TotalEnergypercycle"></span></p>
+</form>
+  </div>
